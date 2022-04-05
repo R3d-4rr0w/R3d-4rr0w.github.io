@@ -10,7 +10,7 @@ alt: "HTB Timelapse Writeup"
 
 # Hack the Box - Timelapse
 
-![Untitled](../img/HTB-TimeLapse/HTB-TimeLapse.png)
+<img src="../img/HTB-TimeLapse/HTB-TimeLapse.png">
 
 Reconhecimento:
 
@@ -124,7 +124,7 @@ ver 2.0 efh 5455 efh 7875 winrm_backup.zip/legacyy_dev_auth.pfx PKZIP Encr: TS_c
 
 Faremos um bruteforce para tentar quebrar a senha:
 
-![Untitled](../img/HTB-TimeLapse/HTB-TimeLapse%201.png)
+<img src="../img/HTB-TimeLapse/HTB-TimeLapse%201.png">
 
 Após extrair o conteudo, temos acesso a um arquivo pfx com senha.
 
@@ -137,7 +137,7 @@ Vamos usar o pfx2john para extrair o hash da senha novamente
 
 Vamos tentar quebrar a senha denovo usando o john.
 
-![Untitled](../img/HTB-TimeLapse/HTB-TimeLapse%202.png)
+<img src="../img/HTB-TimeLapse/HTB-TimeLapse%202.png">
 
 Agora que temos a senha, vamos extrair o certificado e a chave  do client do arquivo pfx.
 
@@ -157,44 +157,44 @@ Como visto no scan do nmap, temos a porta 5986 - WinRM aberta.
 
 Agora que temos os certificados do client, tentaremos acessar um powershell remoto com o evil-winrm
 
-![Untitled](../img/HTB-TimeLapse/HTB-TimeLapse%203.png)
+<img src="../img/HTB-TimeLapse/HTB-TimeLapse%203.png">
 
 Conseguimos acesso a máquina.
 
 Buscando nos diretórios que temos acesso, achamos a flag de usuario (user.txt) no Desktop do usuário que estamos logados.
 
-![Untitled](../img/HTB-TimeLapse/HTB-TimeLapse%204.png)
+<img src="../img/HTB-TimeLapse/HTB-TimeLapse%204.png">
 
 Continuando a exploração, vamos olhar no histórico do powershell para ver se encontramos algo de interessante.
 
 Conseguimos achar as credenciais de outro usuário.
 
-![Untitled](../img/HTB-TimeLapse/HTB-TimeLapse%205.png)
+<img src="../img/HTB-TimeLapse/HTB-TimeLapse%205.png">
 
 Agora podemos acessar ao powershell remoto usando o usuário e a senha que encontramos.
 
-![Untitled](../img/HTB-TimeLapse/HTB-TimeLapse%206.png)
+<img src="../img/HTB-TimeLapse/HTB-TimeLapse%206.png">
 
 Ao enumerar os usuários do AD, encontramos o user Administrator 
 
-![Untitled](../img/HTB-TimeLapse/HTB-TimeLapse%207.png)
+<img src="../img/HTB-TimeLapse/HTB-TimeLapse%207.png">
 
 Além do arquivo de backup que encontramos no SMB, também encontramos vários documentos a respeito da implantação do serviço LPAS.
 
 Sabendo que as senhas do ‘Administrator’ são salvas localmente no Active Directory, vamos tentar fazer o dump das credenciais.
 
-![Untitled](../img/HTB-TimeLapse/HTB-TimeLapse%208.png)
+<img src="../img/HTB-TimeLapse/HTB-TimeLapse%208.png">
 
 Agora que temos a senha do Administrator, vamos fazer login usando novamente o Evil-WinRM.
 
-![Untitled](../img/HTB-TimeLapse/HTB-TimeLapse%209.png)
+<img src="../img/HTB-TimeLapse/HTB-TimeLapse%209.png">
 
 Após um tempo buscando a flag do root, que não estava no Desktop do user, como de costume, tentei ver nos outros usuários.
 
 E estava no Desktop de outro usuário.
 
-![Untitled](../img/HTB-TimeLapse/HTB-TimeLapse%2010.png)
+<img src="../img/HTB-TimeLapse/HTB-TimeLapse%2010.png">
 
 E assim conseguimos comprometer a máquina e conseguir as duas flags.
 
-![Untitled](../img/HTB-TimeLapse/HTB-TimeLapse%2011.png)
+<img src="../img/HTB-TimeLapse/HTB-TimeLapse%2011.png">
