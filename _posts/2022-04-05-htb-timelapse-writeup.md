@@ -5,7 +5,7 @@ date: 2022-04-05 09:00:00 -0300
 categories: [Hack The Box, Writeups]
 tags: [HTB, Writeups, Windows, Easy, LAPS]
 image: "/img/htb/timelapse/htb-timelapse-logo.png"
-alt: "HTB Timelapse Writeup"
+alt: "HTBTimelapseWriteup"
 ---
 
 
