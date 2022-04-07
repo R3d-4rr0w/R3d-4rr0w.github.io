@@ -21,7 +21,7 @@ O desafio pode ser encontrado no [Canal do YouTube](https://www.youtube.com/watc
 
 ---
 
-Reconhecimento:
+## Reconhecimento:
 
 NMAP:
 
@@ -36,6 +36,9 @@ PORT      STATE SERVICE  VERSION
 10000/tcp open  ssl/http MiniServ 1.890 (Webmin httpd)
 Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 ```
+--- 
+
+## Exploração do WordPress
 
 Ao acessar a porta 80 pelo browser, percebemos logo que se trata de uma aplicação em WordPress.
 
@@ -78,6 +81,8 @@ E dentro do diretório /root , achamos a outra flag.
 <img src="/img/desafio2/vm1/hackerfest-8.png">
 
 ---
+
+## Exploração Webmin
 
 No scan no nmap, conseguimos ver que na porta 10000, existe um serviço Webmin versão 1.890 rodando.
 
