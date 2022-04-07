@@ -5,7 +5,7 @@ date: 2022-04-07 19:00:00 -0300
 categories: [Desafio 2, Beco do Exploit, Writeups]
 tags: [Desafio 2, Writeups, Linux, WordPress]
 image: "/img/desafio2/becoxpl-logo.png"
-alt: "Desafio2-VM 1"
+alt: "Desafio2-VM1"
 ---
 
 
