@@ -4,7 +4,7 @@ author: R3d-4rr0w
 date: 2022-04-07 19:00:00 -0300
 categories: [Desafio 2, Beco do Exploit, Writeups]
 tags: [Desafio 2, Writeups, Linux, WordPress]
-image: "/img/becoxpl-logo.jpg"
+image: "/img/becoxpl-logo.png"
 alt: "Desafio 2 - VM 1"
 ---
 
