@@ -40,10 +40,10 @@ Como podemos ver, não aceita anonymous login.
 A versão do ProFTPD rodando é a 1.3.5, nela existe uma falha no módulo [mod_copy](http://www.proftpd.org/docs/contrib/mod_copy.html), que permite qualquer usuário copiar arquivos sem precisar de permissão.
 
 
-💡 [ProFTPD Vulnerability Lets Users Copy Files Without Permission] https://www.bleepingcomputer.com/news/security/proftpd-vulnerability-lets-users-copy-files-without-permission/)
+>**💡  [ProFTPD Vulnerability Lets Users Copy Files Without Permission](https://www.bleepingcomputer.com/news/security/proftpd-vulnerability-lets-users-copy-files-without-permission/)** 
 
 
-Vamos acessar com o netcat e copiar o arquivo /etc/passwd para ver quais usuários existem.
+Vamos usar o netcat para conectar ao FTP e copiar o arquivo /etc/passwd para ver quais usuários existem.
 
 <img src="/img/desafio2/vm5/aviator 1.png">
 
@@ -107,10 +107,8 @@ O usuário pode iniciar um ProFTPD, vamos até o diretório desse serviço e ver
 
 O ProFTPD 1.3.3c, é uma versão não oficial que contém um backdoor no seu código.
 
-<aside>
-💡 [P**roFTPD-1.3.3c-backdoor**](https://www.aldeid.com/wiki/Exploits/proftpd-1.3.3c-backdoor)
+>**💡 [ProFTPD-1.3.3c-backdoor](https://www.aldeid.com/wiki/Exploits/proftpd-1.3.3c-backdoor)**
 
-</aside>
 
 Agora vamos ver arquivo de configuração do serviço.
 
@@ -158,10 +156,8 @@ Para isso vamos usar o módulo shell_to_meterpreter do metasploit e fazer o upgr
 
 Dentro do help do meterpreter, podemos ver o portfwd, que vamos usar para fazer o port forwarding.
 
-<aside>
-💡 [Meterpreter -  Port Forwarding](https://www.offensive-security.com/metasploit-unleashed/portfwd/)
+>**💡 [Meterpreter -  Port Forwarding](https://www.offensive-security.com/metasploit-unleashed/portfwd/)**
 
-</aside>
 
 <img src="/img/desafio2/vm5/aviator 18.png">
 
