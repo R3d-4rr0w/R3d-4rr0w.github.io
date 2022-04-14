@@ -5,7 +5,7 @@ date: 2022-04-08 17:00:00 -0300
 categories: [Desafio 2, Beco do Exploit, Writeups]
 tags: [Desafio 2, Writeups, Linux, FTP, Mod_Copy]
 image: "/img/desafio2/becoxpl-logo.png"
-alt: "Desafio2-VM1"
+alt: "Desafio2-VM4"
 ---
 
 # VM 4 - JOY
