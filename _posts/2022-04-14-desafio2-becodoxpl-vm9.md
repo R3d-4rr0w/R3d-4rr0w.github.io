@@ -33,15 +33,15 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Acessando a porta 80 do serviço web no browser, vemos a página inicial do Drupal.
 
-<imc src="/img/desafio2/vm9/dc.png">)
+<img src="/img/desafio2/vm9/dc.png">)
 
 Olhando o código fonte, conseguimos ver  versão do drupal que está sendo usada.
 
-<imc src="/img/desafio2/vm9/dc 1.png">
+<img src="/img/desafio2/vm9/dc 1.png">
 
 Ao procurar por Drupal no searchsploit, vemos que tem um exploit que explora um SQL Injection.
 
-<imc src="/img/desafio2/vm9/dc 2.png">
+<img src="/img/desafio2/vm9/dc 2.png">
 
 ---
 
@@ -54,15 +54,15 @@ O exploit insere um novo usuário no banco de dados do Drupal, permitindo nosso 
 
 Como o código foi escrito na versão 2.x do Python, teremos que executar com a mesma versão, pois tem algumas diferenças de sintaxe para o Python 3.x
 
-<imc src="/img/desafio2/vm9/dc.png 3">
+<img src="/img/desafio2/vm9/dc.png 3">
 
 Agora vamos fazer login com o usuário que criamos usando o exploit.
 
-<imc src="/img/desafio2/vm9/dc 4.png">
+<img src="/img/desafio2/vm9/dc 4.png">
 
 Conseguimos fazer o login na aplicação.
 
-<imc src="/img/desafio2/vm9/dc 5.png">
+<img src="/img/desafio2/vm9/dc 5.png">
 
 ---
 
@@ -72,7 +72,7 @@ Podemos tentar inserir um backdoor no template principal de algum tema, para ter
 
 Vamos em appearance para ver os temas que estão instalados na plataforma.
 
-<imc src="/img/desafio2/vm9/dc 6.png">
+<img src="/img/desafio2/vm9/dc 6.png">
 
 Vamos baixar um tema novo para inserir o backdoor na [plataforma](https://www.drupal.org/project/project_theme).
 
@@ -80,29 +80,29 @@ Dentro da pasta do tema baixado, temos os arquivos que fazem parte dele.
 
 O template.php é executado pela plataforma para carregar o novo tema, então vamos inserir um backdoor no código dele, usando a função [exec()](https://www.php.net/manual/en/function.exec.php) do php.
 
-<imc src="/img/desafio2/vm9/dc 7.png">
+<img src="/img/desafio2/vm9/dc 7.png">
 
 O código do template.php com o backdoor.
 
-<imc src="/img/desafio2/vm9/dc 8.png">
+<img src="/img/desafio2/vm9/dc 8.png">
 
 Para carregar o tema, temos que compactar a pasta e assim conseguimos instalar
 
-<imc src="/img/desafio2/vm9/dc 9.png">
+<img src="/img/desafio2/vm9/dc 9.png">
 
-<imc src="/img/desafio2/vm9/dc 10.png">
+<img src="/img/desafio2/vm9/dc 10.png">
 
 Podemos ver que o tema com nosso backdoor foi instalado.
 
-<imc src="/img/desafio2/vm9/dc 11.png">
+<img src="/img/desafio2/vm9/dc 11.png">
 
 Vamos deixar o netcat esperando a conexão e selecionar o tema.
 
-<imc src="/img/desafio2/vm9/dc 12.png">
+<img src="/img/desafio2/vm9/dc 12.png">
 
 Assim conseguimos  a shell.
 
-<imc src="/img/desafio2/vm9/dc 13.png">
+<img src="/img/desafio2/vm9/dc 13.png">
 
 Agora podemos carregar a shell TTY usando o python.
 
@@ -124,7 +124,7 @@ find / -perm -u=s -type f 2>/dev/null
 
 O usuário tem permissão para executar esses arquivos como root.
 
-<imc src="/img/desafio2/vm9/dc 14.png">
+<img src="/img/desafio2/vm9/dc 14.png">
 
 Podemos ver que pode usar o /usr/bin/find, dentro desse comando existe uma funcão exec, que permite executar comandos do sistema.
 
@@ -136,8 +136,8 @@ Vamos chamar o /bin/sh com a função -exec do find, assim ele vai executar o fi
 
 Assim conseguimos escalar o privilégio.
 
-<imc src="/img/desafio2/vm9/dc 15.png">
+<img src="/img/desafio2/vm9/dc 15.png">
 
 Agora podemos acessar o diretorio /root e ler a flag que está la.
 
-<imc src="/img/desafio2/vm9/dc 16.png">
+<img src="/img/desafio2/vm9/dc 16.png">

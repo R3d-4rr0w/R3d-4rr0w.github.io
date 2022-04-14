@@ -177,4 +177,4 @@ Podemos ver que temos acesso root.
 
 E dentro do diretório /root, temos a flag da VM.
 
-<img src ="/img/desafi?
+<img src ="/img/desafio2/vm7/hardy 22.png">
