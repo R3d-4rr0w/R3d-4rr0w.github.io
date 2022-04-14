@@ -1,7 +1,7 @@
 ---
 title: Desafio 2 - VM 10
 author: R3d-4rr0w
-date: 2022-04-14 06:00:00 -0300
+date: 2022-04-14 06:30:00 -0300
 categories: [Desafio 2, Beco do Exploit, Writeups]
 tags: [Desafio 2, Writeups, Linux, Log Poisoning]
 image: "/img/desafio2/becoxpl-logo.png"

